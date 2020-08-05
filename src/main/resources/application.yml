@@ -70,4 +70,4 @@ spring:
           contentType: application/json
 api:
   url:
-    point: http://menuscore:8080
+    point: http://user3-menuscore:8080
