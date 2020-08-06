@@ -71,3 +71,4 @@ spring:
 api:
   url:
     point: http://user3-menuscore:8080
+

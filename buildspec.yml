@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "t5-admin"
+    _PROJECT_NAME: "user3-admin"
 
 phases:
   install:
