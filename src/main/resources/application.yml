@@ -42,6 +42,16 @@ api:
   url:
     point: http://localhost:8085
 
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    # 전역설정
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 610
+
 
 
 ---
