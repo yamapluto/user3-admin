@@ -82,3 +82,12 @@ api:
   url:
     point: http://user3-menuscore:8080
 
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    # 전역설정
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 610
