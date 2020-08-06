@@ -42,13 +42,14 @@ public class Menu {
         menuScore.setMenuId(menuRegistered.getId());
         menuScore.setStatus("saved");
         menuScore.setScore(0);
-        System.out.println("##### MenuScore onPostPersist : " + menuScore.getMenuId());
+        System.out.println("##### MenuScore onPostPersist : " + menuScore.getMenuId()+"<<<<<<<");
         AdminApplication.applicationContext.getBean(doremi.external.MenuScoreService.class)
                 .saveRequest(menuScore);
     }
 
     @PostRemove
     public void onPostRemove(){
+        System.out.println("##### MenuScore onPostRemove <<<<<<<<<");
         MenuDeleted menuDeleted = new MenuDeleted();
         BeanUtils.copyProperties(this, menuDeleted);
         menuDeleted.publishAfterCommit();
