@@ -12,7 +12,7 @@ import java.util.Date;
 //@FeignClient(name="menuScore", url="http://localhost:8085")
 public interface MenuScoreService {
 
-    @RequestMapping(method= RequestMethod.POST, path="/menuscore/save")
+    @RequestMapping(method= RequestMethod.POST, path="/menuscores/save")
     public void saveRequest(@RequestBody MenuScore menuScore);
 
 }
