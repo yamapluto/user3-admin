@@ -43,7 +43,7 @@ public class Menu {
 
     @PostRemove
     public void onPostRemove(){
-        System.out.println("##### MenuScore onPostRemove <<<<<<<");
+        System.out.println("##### MenuScore onPostRemove <<<<<<<<");
         MenuDeleted menuDeleted = new MenuDeleted();
         BeanUtils.copyProperties(this, menuDeleted);
         menuDeleted.publishAfterCommit();
