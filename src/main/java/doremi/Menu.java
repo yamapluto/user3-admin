@@ -30,12 +30,7 @@ public class Menu {
 
         Date date = new Date();
         Date regTime = new Timestamp(date.getTime());
-        try {
-            System.out.println("##### onPostPersist currentThread : " + regTime);
-            Thread.currentThread().sleep((long) (400 + Math.random() * 220));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         doremi.external.MenuScore menuScore = new doremi.external.MenuScore();
         // mappings goes here
