@@ -77,7 +77,7 @@ phases:
                     resources:
                       limits:
                         cpu: 500m
-                      request:
+                      requests:
                         cpu: 200m
                     ports:
                       - containerPort: 8080
