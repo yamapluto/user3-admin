@@ -18,17 +18,21 @@ kubectl create deploy user3-admin --image=052937454741.dkr.ecr.ap-northeast-1.am
 kubectl expose deploy user3-admin --type="ClusterIP" --port=8080
 
 
->>>>KAFKA
+## KAFKA
 
-토픽 생성 kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --topic doremi --create --partitions 1 --replication-factor 1
-토픽 조회 kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --list
+토픽 생성 
+kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --topic doremi --create --partitions 1 --replication-factor 1
+토픽 조회 
+kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --list
 이벤트 수신 
 kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootstrap-server my-kafka:9092 --topic doremi --from-beginning 
 kubectl -n kafka exec -ti my-kafka-1 -- /usr/bin/kafka-console-consumer --bootstrap-server my-kafka:9092 --topic doremi
 
 
 --metrix server 설치해야함
->>> AUTOSCALE
+
+## AUTOSCALE
+
 --buildspec.yml: resource 정보 넣기, readness/liveness 삭제
 kubectl autoscale deployment user3-admin --cpu-percent=10 --min=1 --max=5
 kubectl get po -l run=user3-admin -w
@@ -36,7 +40,8 @@ kubectl get hpa user3-admin -o yaml
 
 watch kubectl get pod
 
->>>siege 설치
+## siege 설치
+
 kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
@@ -49,8 +54,10 @@ spec:
    image: apexacme/siege-nginx
 EOF
 
->>Siege 구동
+
+## Siege 구동
 kubectl exec -it siege --container siege -n default -- /bin/bash
 
->>명령어 발행
+
+## 명령어 발행
 siege -c5 -t60S -v --content-type "application/json" 'http://user3-admin:8080/menus POST {"menuName": "toamto", "menuType": "pizza", "description": "pizzadesc", "price": "123.0"}' 
